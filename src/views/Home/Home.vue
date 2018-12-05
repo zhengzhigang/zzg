@@ -9,13 +9,13 @@
         </p>
         <div class="message">
             <div class="message-title">
-                <input class="zg-input" type="text" placeholder="留言主题...">
+                <input class="zg-input" type="text" placeholder="留言主题..." v-model="theme">
             </div>
             <div class="message-content">
-                <textarea class="zg-textarea" cols="30" rows="6" placeholder="留言内容..."></textarea>
+                <textarea class="zg-textarea" cols="30" rows="6" placeholder="留言内容..." v-model="content"></textarea>
             </div>
             <div class="message-btn">
-                <button class="zg-btn">发送</button>
+                <button class="zg-btn" @click="sendMessage">发送</button>
             </div>
         </div>
         <div class="footer">
@@ -24,8 +24,24 @@
     </div>
 </template>
 <script>
+import * as api from '@/api'
 export default {
-    
+    name: 'home',
+
+    data () {
+        return {
+            theme: '',
+            content: ''
+        }
+    },
+
+    methods: {
+        sendMessage () {
+            api.sendMessage({theme: this.theme, content: this.theme}).then(res => {
+                console.log(res)
+            })
+        }
+    }
 }
 </script>
 <style lang="scss" scoped>
@@ -46,9 +62,7 @@ export default {
         }
     }
     .msg-title {
-        padding-bottom: 20px;
-        border-bottom: 1px solid #eaecef;
-        margin-bottom: 20px;
+        margin: 20px 0;
         font-size: 24px;
         text-align: center;
         color: #606266
@@ -66,7 +80,9 @@ export default {
     }
     .footer {
         padding: 40px 30px;
+        margin-top: 20px;
         text-align: center;
         color: #999;
+        border-top: 1px solid #eaecef;
     }
 </style>

@@ -19,3 +19,13 @@ yarn run build
 ```
 yarn run lint
 ```
+
+### 接口
+```
+1.留言
+    url: /send/message
+    params {
+        theme: String,
+        content: String
+    }
+```
