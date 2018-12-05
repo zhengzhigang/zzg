@@ -9,13 +9,13 @@
                 <router-link class="nav-link" to="/">首页</router-link>
             </li>
             <li class="nav-item">
-                <router-link class="nav-link" to="/a">JavaScript</router-link>
+                <router-link class="nav-link" to="/soon">JavaScript</router-link>
             </li>
             <li class="nav-item">
-                <router-link class="nav-link" to="/b">NodeJS</router-link>
+                <router-link class="nav-link" to="/soon">NodeJS</router-link>
             </li>
             <li class="nav-item">
-                <router-link class="nav-link" to="/c">工具</router-link>
+                <router-link class="nav-link" to="/soon">工具</router-link>
             </li>
         </ul>
     </header>
@@ -61,7 +61,7 @@ export default {
                 display: block;
                 padding: 0 20px;
                 height: 60px;
-                &.router-link-active {
+                &.router-link-exact-active {
                     position: relative;
                     color: #51b7ff;
                     border-bottom: 2px solid #51b7ff;

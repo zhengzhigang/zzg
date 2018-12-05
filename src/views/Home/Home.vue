@@ -14,8 +14,8 @@
             <div class="message-content">
                 <textarea class="zg-textarea" cols="30" rows="6" placeholder="留言内容..."></textarea>
             </div>
-            <div class="message-button">
-                <button class="zg-button">发送</button>
+            <div class="message-btn">
+                <button class="zg-btn">发送</button>
             </div>
         </div>
         <div class="footer">
@@ -59,6 +59,10 @@ export default {
         .message-title {
             margin-bottom: 20px;
         }
+    }
+    .message-btn {
+        margin-top: 20px;
+        text-align: right;
     }
     .footer {
         padding: 40px 30px;

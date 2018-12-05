@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 
 import Home from '@/views/Home/Home'
 import Base from '@/views/Base/Base'
+import ComingSoon from '@/views/ComingSoon/ComingSoon'
 
 Vue.use(VueRouter)
 
@@ -15,6 +16,10 @@ const routes = [
                 path: '/home',
                 component: Home,
                 alias: '/'
+            },
+            {
+                path: '/soon',
+                component: ComingSoon
             }
         ]
     },
