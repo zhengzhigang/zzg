@@ -2,7 +2,7 @@ import fetch from './fetch'
 
 const sendMessage = data => {
     return fetch({
-        url: '/send/message',
+        url: '/api/send/message',
         method: 'post',
         data
     })

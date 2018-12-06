@@ -32,4 +32,4 @@ router.post('/send/message', async (ctx, next) => {
     connection.end();
 })
 
-module.exports = router
+export default router
