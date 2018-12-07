@@ -6,7 +6,7 @@ const account = {
         user: {
             userId: '',
             userName: '',
-            token: nll
+            token: null
         },
         token: null
     },
