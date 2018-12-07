@@ -10,6 +10,10 @@ const account = {
         },
         token: null
     },
+    getters: {
+        getUser: state => state.user,
+        getToken: state => state.token
+    },
     mutations: {
         SET_USER(state, user) {
             state.user = user
@@ -37,3 +41,5 @@ const account = {
         }
     }
 }
+
+export default account
