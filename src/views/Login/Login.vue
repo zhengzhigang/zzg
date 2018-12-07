@@ -1,6 +1,6 @@
 <template>
     <div class="login">
-        <!-- <div class="login-box">
+        <div class="login-box">
             <div class="login-item">
                 <label>用户名</label>
                 <input class="zg-input" type="text" v-model="userName" placeholder="输入用户名">
@@ -11,18 +11,14 @@
             </div>
             <div class="login-item login-btn">
                 <button class="zg-btn block" @click="login">登录</button>
-                <v-icon name="beer" flip="vertical" color="#eee"/>
             </div>
-        </div> -->
+        </div>
     </div>
 </template>
 <script>
+import * as api from '@/api'
 export default {
     name: 'Login',
-
-    components: {
-
-    },
 
     data() {
         return {
@@ -33,19 +29,25 @@ export default {
 
     methods: {
         login() {
-
+            if (this.validate()) {
+                api.login().then(res => {
+                    console.log(res)
+                })
+            }
         },
 
-        add() {
-            this.$message({
-                message: 'dhajkdha',
-                type: 'error'
-            })
+        validate() {
+            if (this.userName && this.password) {
+                return true
+            } else {
+                let errorMsg = !this.userName ? '请输入用户名' : (!this.password ? '请输入密码' : '')
+                this.$message({
+                    message: errorMsg,
+                    type: 'error'
+                })
+                return false
+            }
         }
-    },
-
-    mounted() {
-        document.addEventListener('click', this.add)
     }
 }
 </script>
