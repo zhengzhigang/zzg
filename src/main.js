@@ -10,6 +10,24 @@ Vue.component('v-icon', Icon)
 Vue.config.productionTip = false
 Vue.use(MyPlugin)
 
+// 登录拦截
+router.beforeEach((to, from, next) => {
+  if (to.meta.requirePath) {
+    if (store.state.token) {
+      next()
+    } else {
+      next({
+        path: '/login',
+        query: {
+          rediret: to.fullPath
+        }
+      })
+    }
+  } else {
+    next()
+  }
+})
+
 new Vue({
   router,
   render: h => h(App),

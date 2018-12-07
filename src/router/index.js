@@ -12,11 +12,17 @@ const routes = [
     {
         path: '/', 
         component: Base,
+        meta: {
+            requirePath: true
+        },
         children: [
             {
                 path: '/home',
                 component: Home,
-                alias: '/'
+                alias: '/',
+                meta: {
+                    requirePath: true
+                }
             },
             {
                 path: '/soon',
