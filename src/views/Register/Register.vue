@@ -39,6 +39,10 @@ export default {
                     let type = ''
                     if (res.code !== 1) {
                         type = 'error'
+                    } else {
+                        setTimeout(() => {
+                            this.$router.push('/')
+                        }, 2000)
                     }
                     this.$message({
                         message: res.msg,
