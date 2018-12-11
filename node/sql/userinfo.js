@@ -9,7 +9,7 @@ const userinfo = {
      */
     async add(args) {
         let sql = 'INSERT INTO userinfo(userName, password) VALUES(?, ?)';
-        let params = [args.username, args.password];
+        let params = [args.userName, args.password];
         let result = await query(sql, params);
         return result;
     },
@@ -21,7 +21,7 @@ const userinfo = {
      */
     async getByUserName(args) {
         let sql = 'SELECT Id, userName, password FROM userinfo WHERE userName = ?';
-        let params = [args.username];
+        let params = [args.userName];
         let result = await query(sql, params);
         return result;
     },
@@ -33,9 +33,10 @@ const userinfo = {
      */
     async getCountByUserName(args) {
         let sql = 'SELECT COUNT(1) AS UserNum FROM userinfo WHERE userName = ?';
-        let params = [args.username];
+        let params = [args.userName];
+        console.log(params)
         let result = await query(sql, params);
-        return result;
+        return result[0].UserNum;
     }
 }
 

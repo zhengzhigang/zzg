@@ -36,7 +36,14 @@ export default {
             }
             if (this.validate()) {
                 api.register(param).then(res => {
-                    console.log(res)
+                    let type = ''
+                    if (res.code !== 1) {
+                        type = 'error'
+                    }
+                    this.$message({
+                        message: res.msg,
+                        type: type || 'success'
+                    })
                 })
             }
         },
