@@ -5,6 +5,7 @@ import Home from '@/views/Home/Home'
 import Base from '@/views/Base/Base'
 import ComingSoon from '@/views/ComingSoon/ComingSoon'
 import Login from '@/views/Login/Login'
+import Register from '@/views/Register/Register'
 
 Vue.use(VueRouter)
 
@@ -33,6 +34,10 @@ const routes = [
     {
         path: '/login',
         component: Login
+    },
+    {
+        path: '/register',
+        component: Register
     }
 ]
 

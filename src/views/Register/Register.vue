@@ -1,17 +1,17 @@
 <template>
-    <div class="login">
-        <div class="login-box">
+    <div class="register">
+        <div class="register-box">
             <h3>注册</h3>
-            <div class="login-item">
+            <div class="register-item">
                 <label>用户名</label>
                 <input class="zg-input" type="text" v-model="userName" placeholder="输入用户名">
             </div>
-            <div class="login-item">
+            <div class="register-item">
                 <label>密码</label>
                 <input class="zg-input" type="text" v-model="password" placeholder="输入密码">
             </div>
-            <div class="login-item login-btn">
-                <button class="zg-btn block" @click="login">登录</button>
+            <div class="register-item register-btn">
+                <button class="zg-btn block" @click="register">立即注册</button>
             </div>
         </div>
     </div>
@@ -19,7 +19,7 @@
 <script>
 import * as api from '@/api'
 export default {
-    name: 'Login',
+    name: 'register',
 
     data() {
         return {
@@ -29,9 +29,13 @@ export default {
     },
 
     methods: {
-        login() {
+        register() {
+            let param = {
+                userName: this.userName,
+                password: this.password
+            }
             if (this.validate()) {
-                api.login().then(res => {
+                api.register(param).then(res => {
                     console.log(res)
                 })
             }
@@ -53,7 +57,7 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-    .login {
+    .register {
         position: absolute;
         width: 100%;
         left: 0;
@@ -61,7 +65,7 @@ export default {
         bottom: 0;
         background-color: rgba(81, 183, 255, 0.6);
     }
-    .login-box {
+    .register-box {
         position: absolute;
         top: 50%;
         left: 50%;
@@ -75,14 +79,14 @@ export default {
             font-size: 20px;
             text-align: center;
         }
-        .login-item {
+        .register-item {
             margin-bottom: 20px;
         }
         label {
             display: inline-block;
             margin-bottom: 10px;
         }
-        .login-btn {
+        .register-btn {
             width: 100px;
             margin: auto;
         }

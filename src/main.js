@@ -13,22 +13,22 @@ Vue.config.productionTip = false
 Vue.use(MyPlugin)
 
 // 登录拦截
-router.beforeEach((to, from, next) => {
-  if (to.meta.requirePath) {
-    if (getToken()) {
-      next()
-    } else {
-      next({
-        path: '/login',
-        query: {
-          rediret: to.fullPath
-        }
-      })
-    }
-  } else {
-    next()
-  }
-})
+// router.beforeEach((to, from, next) => {
+//   if (to.meta.requirePath) {
+//     if (getToken()) {
+//       next()
+//     } else {
+//       next({
+//         path: '/login',
+//         query: {
+//           rediret: to.fullPath
+//         }
+//       })
+//     }
+//   } else {
+//     next()
+//   }
+// })
 
 new Vue({
   router,

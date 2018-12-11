@@ -18,7 +18,17 @@ const login = data => {
     })
 }
 
+// 注册
+const register = data => {
+    return fetch({
+        url: '/api/register',
+        method: 'post',
+        data
+    })
+}
+
 export {
     sendMessage,
-    login
+    login,
+    register
 }
