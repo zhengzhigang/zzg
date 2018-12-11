@@ -3,20 +3,26 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "vue-cli-service serve",
+    "dev": "concurrently 'npm run server' 'npm run node'",
+    "server": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "node": "babel-node node",
-    "node:build": "babel node --out-dir lib"
+    "node": "NODE_ENV=development babel-node node/index.js",
+    "node:build": "babel node --out-dir lib",
+    "prod": "NODE_ENV=production concurrently --kill-others --kill-others-on-fail  'npm run node'"
   },
   "dependencies": {
     "axios": "^0.18.0",
     "body-parser": "^1.18.3",
+    "concurrently": "^4.1.0",
     "element-ui": "^2.4.11",
     "js-cookie": "^2.2.0",
     "koa-bodyparser": "^4.2.1",
     "koa-router": "^7.4.0",
+    "koa-session": "^5.10.0",
+    "koa-session-redis": "^1.1.0",
     "koa2": "^2.0.0-alpha.7",
+    "koa2-session-redis": "0.0.2",
     "mysql": "^2.16.0",
     "qs": "^6.6.0",
     "vue": "^2.5.17",
@@ -45,7 +51,8 @@
     "node-sass": "^4.10.0",
     "sass": "^1.15.1",
     "sass-loader": "^7.1.0",
-    "vue-template-compiler": "^2.5.17"
+    "vue-template-compiler": "^2.5.17",
+    "webpack": "^4.27.1"
   },
   "eslintConfig": {
     "root": true,
