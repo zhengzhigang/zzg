@@ -38,7 +38,19 @@ export default {
     methods: {
         sendMessage () {
             api.sendMessage({theme: this.theme, content: this.theme}).then(res => {
-                console.log(res)
+                if (res.status === 0) {
+                    this.$message({
+                        type: 'success',
+                        message: '留言成功'
+                    })
+                    this.theme = ''
+                    this.content = ''
+                } else {
+                    this.$message({
+                        type: 'error',
+                        message: res.msg
+                    })
+                }
             })
         }
     }
