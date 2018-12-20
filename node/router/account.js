@@ -1,6 +1,5 @@
 import Router from 'koa-router';
 import crypto from 'crypto';
-import sql_operate from '../sql/sql_operate';
 import retCode from '../utils/retcode.js';
 import userinfo from '../sql/userinfo.js';
 import random from '../utils/random.js'

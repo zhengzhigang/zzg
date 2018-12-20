@@ -1,5 +1,6 @@
 import Router from 'koa-router';
 import sql_operate from '../sql/sql_operate';
+import home from '../sql/home';
 
 const router = new Router();
 
@@ -13,23 +14,14 @@ router.post('/send/message', async (ctx, next) => {
         }
         return;
     }
-    let connection = sql_operate.connect('zzgsite');
-    connection.query(`CREATE TABLE If Not Exists message (
-        Id int,
-        theme varchar(255),
-        content varchar(255)
-    )`);
-    let id = await sql_operate.count(connection);
-    let addSql = `INSERT INTO message(Id, theme, content) VALUES(${id},?,?)`;
-    let add = await sql_operate.add(connection, addSql, [theme, content]);
-    if (add === 0) {
+    let addMessage = await home.message({theme, content});
+    if (addMessage.insertId > 0) {
         ctx.body = {
             status: 0,
             msg: '留言成功',
             data: null
         }
     }
-    connection.end();
 })
 
 export default router
