@@ -5,6 +5,7 @@ import Home from '@/views/Home/Home'
 import Base from '@/views/Base/Base'
 import ComingSoon from '@/views/ComingSoon/ComingSoon'
 import Login from '@/views/Login/Login'
+import JavaScript from '@/views/JavaScript/JavaScript'
 import Register from '@/views/Register/Register'
 
 Vue.use(VueRouter)
@@ -34,6 +35,13 @@ const routes = [
     {
         path: '/login',
         component: Login
+    },
+    {
+        path: '/js',
+        component: JavaScript,
+        meta: {
+            requirePath: true
+        }
     },
     {
         path: '/register',

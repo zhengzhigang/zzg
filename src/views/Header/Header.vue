@@ -9,7 +9,7 @@
                 <router-link class="nav-link" to="/">首页</router-link>
             </li>
             <li class="nav-item">
-                <router-link class="nav-link" to="/soon">JavaScript</router-link>
+                <router-link class="nav-link" to="/js">JavaScript</router-link>
             </li>
             <li class="nav-item">
                 <router-link class="nav-link" to="/soon">NodeJS</router-link>
