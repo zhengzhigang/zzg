@@ -1,7 +1,5 @@
 <template>
-    <div class="line" :style="{width:width}">
-        dsdsadsa
-    </div>
+    <div class="line" :style="{width:width}"></div>
 </template>
 <script>
 export default {
