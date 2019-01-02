@@ -17,6 +17,9 @@
             <li class="nav-item">
                 <router-link class="nav-link" to="/soon">工具</router-link>
             </li>
+            <li class="nav-item">
+                <a href="javascript:;" class="nav-link">退出</a>
+            </li>
         </ul>
     </header>
 </template>

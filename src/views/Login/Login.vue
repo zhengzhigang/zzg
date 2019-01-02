@@ -1,14 +1,14 @@
 <template>
     <div class="login">
         <div class="login-box">
-            <h3>注册</h3>
+            <h3>登录</h3>
             <div class="login-item">
                 <label>用户名</label>
                 <input class="zg-input" type="text" v-model="userName" placeholder="输入用户名">
             </div>
             <div class="login-item">
                 <label>密码</label>
-                <input class="zg-input" type="text" v-model="password" placeholder="输入密码">
+                <input class="zg-input" type="password" v-model="password" placeholder="输入密码">
             </div>
             <div class="login-item login-btn">
                 <button class="zg-btn block" @click="login">登录</button>
@@ -18,13 +18,14 @@
 </template>
 <script>
 import * as api from '@/api'
+import {setToken} from '@/utils/auth.js'
 export default {
     name: 'Login',
 
     data() {
         return {
-            userName: '',
-            password: ''
+            userName: 'zhengzhigang',
+            password: 'bm199231949'
         }
     },
 
@@ -40,8 +41,10 @@ export default {
                     if (res.code !== 1) {
                         type = 'error'
                     } else {
+                        this.$store.dispatch('login', res.data)
+                        setToken(res.data.token)
                         setTimeout(() => {
-                            this.$router.push('/')
+                            this.$router.push({path: '/'})
                         }, 2000)
                     }
                     this.$message({

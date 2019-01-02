@@ -2,8 +2,10 @@ import Router from 'koa-router';
 import crypto from 'crypto';
 import retCode from '../utils/retcode.js';
 import userinfo from '../sql/userinfo.js';
-import random from '../utils/random.js'
-import Base64 from '../utils/base64.js'
+import random from '../utils/random.js';
+import Base64 from '../utils/base64.js';
+import JWT from '../utils/jwt.js';
+let jwt = new JWT();
 
 const router = new Router();
 
@@ -12,7 +14,11 @@ router.post('/login', async (ctx, next) => {
     let {userName, password} = ctx.request.body;
     let result = {
         code: retCode.Success,
-        data: null,
+        data: {
+            userName,
+            userId: null,
+            token: null
+        },
         msg: '登录成功'
     }
     if (!userName || !password) {
@@ -49,6 +55,8 @@ router.post('/login', async (ctx, next) => {
     }
     // 将用户ID存入session中
     ctx.session = {id: userResult[0].Id}
+    let token = jwt.generateToken({userName, password})
+    result.data.token = token;
     ctx.body = result;
 })
 

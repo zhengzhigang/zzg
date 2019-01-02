@@ -7,7 +7,7 @@
     "server": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "node": "NODE_ENV=development babel-node node/index.js",
+    "node": "concurrently 'NODE_ENV=development babel-node node/index.js' 'redis-server'",
     "node:build": "babel node --out-dir lib",
     "prod": "NODE_ENV=production concurrently --kill-others --kill-others-on-fail  'npm run node'"
   },
@@ -17,6 +17,7 @@
     "concurrently": "^4.1.0",
     "element-ui": "^2.4.11",
     "js-cookie": "^2.2.0",
+    "jsonwebtoken": "^8.4.0",
     "koa-bodyparser": "^4.2.1",
     "koa-router": "^7.4.0",
     "koa-session": "^5.10.0",
