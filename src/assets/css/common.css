@@ -38,6 +38,18 @@ textarea:focus {
     border: 1px solid #51b7ff;
 }
 
+/* modal */
+.zg-modal {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    opacity: .5;
+    background: #000;
+    z-index: 10;
+}
+
 /* button */
 .zg-btn {
     display: inline-block;
@@ -76,6 +88,11 @@ textarea:focus {
 .zg-btn.block {
     display: block;
     width: 100%;
+}
+.zg-btn-small {
+    padding: 9px 15px;
+    font-size: 12px;
+    border-radius: 3px;
 }
 .zg-btn-primary {
     color: #fff;
@@ -307,5 +324,136 @@ textarea:focus {
     color: #e6a23c;
 }
 
+/* mwssage-box */
+.zg-msgbox-wrapper {
+    position:fixed;
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
+    text-align:center;
+    z-index: 11;
+}
+.zg-msgbox-wrapper::after{
+    content:"";
+    display:inline-block;
+    height:100%;
+    width:0;
+    vertical-align:middle
+}
+.zg-message-box{
+    display:inline-block;
+    width:420px;
+    padding-bottom:10px;
+    vertical-align:middle;
+    background-color:#fff;
+    border-radius:4px;
+    border:1px solid #ebeef5;
+    font-size:18px;
+    -webkit-box-shadow:0 2px 12px 0 rgba(0,0,0,.1);
+    box-shadow:0 2px 12px 0 rgba(0,0,0,.1);
+    text-align:left;
+    -webkit-backface-visibility:hidden;
+    backface-visibility:hidden
+}
+.zg-msgbox-header{
+    position:relative;
+    padding:15px 15px 10px
+}
+.zg-msgbox-headerbtn{
+    position:absolute;
+    top:15px;
+    right:15px;
+    padding:0;
+    border:none;
+    outline:0;
+    background:0 0;
+    font-size:16px;
+    cursor:pointer
+}
+.zg-msgbox-headerbtn .zg-msgbox-close{
+    color:#909399
+}
+.zg-msgbox-headerbtn:focus .zg-mesgbox-close,
+.zg-msgbox-headerbtn:hover .zg-msgbox-close{
+    color:#409EFF
+}
+.zg-msgbox-content{
+    position:relative;
+    padding:10px 15px;
+    color:#606266;
+    font-size:14px
+}
+.zg-msgbox-message{
+    margin:0
+}
+.zg-msgbox-message p{
+    margin:0;
+    line-height:24px
+}
+.zg-msgbox-btns{
+    padding:5px 15px 0;
+    text-align:right
+}
+.zg-msgbox-btns button:nth-child(2){
+    margin-left:10px
+}
+
+
+.zg-msgbox-fade-enter-active{
+    -webkit-animation:msgbox-fade-in .3s;
+    animation:msgbox-fade-in .3s
+}
+.zg-msgbox-fade-leave-active{
+    -webkit-animation:msgbox-fade-out .3s;
+    animation:msgbox-fade-out .3s
+}
+@-webkit-keyframes msgbox-fade-in{
+    0%{
+        -webkit-transform:translate3d(0,-20px,0);
+        transform:translate3d(0,-20px,0);
+        opacity:0
+    }
+    100%{
+        -webkit-transform:translate3d(0,0,0);
+        transform:translate3d(0,0,0);
+        opacity:1
+    }
+}
+@keyframes msgbox-fade-in{
+    0%{
+        -webkit-transform:translate3d(0,-20px,0);
+        transform:translate3d(0,-20px,0);
+        opacity:0
+    }
+    100%{
+        -webkit-transform:translate3d(0,0,0);
+        transform:translate3d(0,0,0);
+        opacity:1
+    }
+}
+@-webkit-keyframes msgbox-fade-out{
+    0%{
+        -webkit-transform:translate3d(0,0,0);
+        transform:translate3d(0,0,0);
+        opacity:1
+    }
+    100%{
+        -webkit-transform:translate3d(0,-20px,0);
+        transform:translate3d(0,-20px,0);opacity:0
+    }
+}
+@keyframes msgbox-fade-out{
+    0%{
+        -webkit-transform:translate3d(0,0,0);
+        transform:translate3d(0,0,0);
+        opacity:1
+    }
+    100%{
+        -webkit-transform:translate3d(0,-20px,0);
+        transform:translate3d(0,-20px,0);
+        opacity:0
+    }
+}
 
 

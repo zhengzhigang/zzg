@@ -12,6 +12,7 @@
     "prod": "NODE_ENV=production concurrently --kill-others --kill-others-on-fail  'npm run node'"
   },
   "dependencies": {
+    "autoprefixer": "^9.4.3",
     "axios": "^0.18.0",
     "body-parser": "^1.18.3",
     "concurrently": "^4.1.0",

@@ -18,14 +18,29 @@
                 <router-link class="nav-link" to="/soon">工具</router-link>
             </li>
             <li class="nav-item">
-                <a href="javascript:;" class="nav-link">退出</a>
+                <a href="javascript:;" class="nav-link" @click="logout">退出</a>
             </li>
         </ul>
     </header>
 </template>
 <script>
 export default {
-    name: 'Header'
+    name: 'Header',
+
+    methods: {
+        confirm() {
+
+        },
+        cancel() {
+            alert(3)
+        },
+        logout() {
+            this.$alert({
+                title: '提示',
+                text: '这是一段自定义内容'
+            }, this.confirm, this.cancel)
+        }
+    }
 }
 </script>
 <style lang="scss" scoped>
