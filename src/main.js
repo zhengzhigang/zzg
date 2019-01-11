@@ -7,10 +7,13 @@ import store from './store'
 import { getToken } from './utils/auth'
 import Icon from 'vue-awesome/components/Icon'
 import MyPlugin from '@/plugin'
+import ElementUI from 'element-ui'
+import 'element-ui/lib/theme-chalk/index.css';
 Vue.component('v-icon', Icon)
 
 Vue.config.productionTip = false
 Vue.use(MyPlugin)
+Vue.use(ElementUI)
 
 // 登录拦截
 router.beforeEach((to, from, next) => {
