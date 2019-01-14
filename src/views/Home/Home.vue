@@ -31,6 +31,7 @@
                 <div class="swiper-button-next" slot="button-next"></div>
                 <div class="swiper-pagination" slot="pagination"></div>
             </swiper>
+            <i class="close el-icon-close" @click="closeSwiper"></i>
         </div>
     </div>
 </template>
@@ -53,6 +54,10 @@ export default {
             list: [],
             swiperOption: {
                 lazy: true,
+                effect: 'fade',
+                fadeEffect: {
+                    crossFade: true
+                },
                 autoHeight: true,
                 loop: true,
                 pagination: {
@@ -67,7 +72,29 @@ export default {
         }
     },
 
+    mounted() {
+        let timer
+        let a = () => {
+            return new Promise((resolve, reject) => {
+                var img = new Image()
+                img.src = '../../assets/img/timg.jpeg'
+                timer = setInterval(() => {
+                    if (img.complete) {
+                        resolve(img)
+                        clearInterval(timer)
+                    }
+                }, 50);
+            })
+        }
+        a().then((img) => {
+            console.log(img)
+        })
+    },
+
     methods: {
+        closeSwiper() {
+            this.visible = false
+        },
         showSwiper() {
             this.list = [
                 {src: require('../../assets/img/timg.jpeg')},
@@ -105,15 +132,21 @@ export default {
         bottom: 0;
         left: 0;
         right: 0;
-        background-color: rgba(0, 0, 0, .7);
+        background-color: rgba(0, 0, 0, .8);
         z-index: 999;
     }
     .swiper-container {
         position: absolute;
-        width: 800px;
+        width: 900px;
+        padding: 0 50px;
         left: 50%;
         top: 50%;
         transform: translate3d(-50%, -50%, 0);
+        .swiper-pagination-fraction,
+        .swiper-pagination-current,
+        .swiper-pagination-total {
+            color: #fff;
+        }
     }
     .swiper-slide {
         display: flex;
@@ -126,6 +159,17 @@ export default {
             max-width: 100%;
             max-height: 100%;
         }
+    }
+    .close {
+        position: absolute;
+        display: block;
+        top: 30px;
+        right: 30px;
+        text-align: center;
+        line-height: 30px;
+        font-size: 36px;
+        cursor: pointer;
+        color: #ddd;
     }
     .home {
         padding: 60px 30px 0 30px;
