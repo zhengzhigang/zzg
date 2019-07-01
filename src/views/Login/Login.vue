@@ -26,6 +26,7 @@ export default {
         return {
             userName: 'zhengzhigang',
             password: 'bm199231949'
+            ]
         }
     },
 
