@@ -26,7 +26,7 @@
     "koa2": "^2.0.0-alpha.7",
     "koa2-session-redis": "0.0.2",
     "mysql": "^2.16.0",
-    "qs": "^6.6.0",
+    "qs": "^6.6.1",
     "vue": "^2.5.17",
     "vue-template-compiler": "^2.5.17",
     "vue-awesome": "^3.2.0",
